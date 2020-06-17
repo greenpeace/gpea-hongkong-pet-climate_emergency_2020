@@ -55,12 +55,7 @@ body {
   }
 }
 
-.text--mred {
-  color: var(--mred);
-}
-
 .aside-enform {
-  background-color: var(--mred);
   z-index: 99;
 }
 
@@ -102,6 +97,18 @@ body {
 
 .text {
   @apply text-base tracking-wide mb-4;
+}
+
+.text--mred {
+  color: var(--mred);
+}
+
+.text-cyan {
+  color: #64ffff;
+}
+
+.text-green {
+  color: #006b4d;
 }
 
 .external-link {
