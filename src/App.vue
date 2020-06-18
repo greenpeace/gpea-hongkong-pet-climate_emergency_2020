@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="antialiased font-nototc relative flex flex-col items-center">
-    <header class="z-10 header relative w-full px-4 py-2 header--white">
+    <header class="header relative w-full px-4 py-2 header--white">
       <div class="container mx-auto flex items-center justify-between">
         <div>
           <img
@@ -14,7 +14,7 @@
             alt="logo"
           />
         </div>
-        <div class="nav-button">
+        <div class="bg-cyan nav-button">
           <button v-scroll-to="'#enform'" class="btn">立即聯署</button>
         </div>
       </div>
@@ -27,7 +27,7 @@
           <section class="section-hero relative">
             <img
               class="w-full"
-              src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/47d38dc3-20200601_climate_petition_mobile-02.jpg"
+              src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/934d12df-2020_climate_petition_banner_1200x628-02.jpg"
               alt
             />
             <div class="green-banenr">
@@ -54,7 +54,7 @@
               <div class="enform-progress my-4">
                 <div class="overflow-hidden rounded shadow w-full bg-gray-200">
                   <div
-                    class="transition-all font-bold text-white bg-gporangelight py-1 text-center"
+                    class="bg-cyan transition-all font-bold text-white py-1 text-center"
                     v-bind:style="{ width: `${this.signupProgress}%` }"
                     v-show="this.participants && this.goal"
                   >{{ this.participants.toLocaleString() }} 人已聯署</div>
@@ -277,7 +277,7 @@ export default {
   },
   computed: {
     mobileBtnText() {
-      return this.formSubmitted ? "感謝您聯署超市走塑" : "立即聯署";
+      return this.formSubmitted ? "感謝您聯署發聲" : "立即聯署";
     },
     innerHeight() {
       return this.getDocumentHeight() - this.getWindowHeight();
