@@ -49,7 +49,10 @@
             <div id="enform" class="form-container form-container--sticky sticky">
               <div class="form-header mt-2 mb-4 text-2xl text-center font-bold">
                 <h2 class="mb-2">爭分奪秒 拯救氣候危機</h2>
-                <p class="font-normal text-sm">一同發聲，告訴政府「香港人關注氣候議題」凝聚力量要求正視氣候危機！</p>
+                <p class="font-normal text-sm">
+                  一同發聲，告訴政府「香港人關注氣候議題」
+                  <br />凝聚力量要求正視氣候危機！
+                </p>
               </div>
               <div class="enform-progress my-4">
                 <div class="overflow-hidden rounded shadow w-full bg-gray-200">
@@ -108,7 +111,7 @@
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="http://www.greenpeace.org/hk/about/contact/"
+                href="https://www.greenpeace.org/hongkong/about/contact/"
                 alt="聯絡我們"
               >聯絡我們</a>
               <a
