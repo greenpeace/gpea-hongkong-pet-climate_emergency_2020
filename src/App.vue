@@ -47,7 +47,7 @@
         <slide-x-right-transition :duration="400">
           <aside class="aside-enform enform relative">
             <div id="enform" class="form-container form-container--sticky sticky">
-              <div class="form-header mt-2 mb-4 text-2xl text-center font-bold">
+              <div class="form-header mt-2 mb-4 text-2xl text-center font-bold" v-if="!formSubmitted">
                 <h2 class="mb-2">爭分奪秒 拯救氣候危機</h2>
                 <p class="font-normal text-sm">
                   一同發聲，告訴政府「香港人關注氣候議題」
@@ -58,12 +58,14 @@
                 <div class="overflow-hidden rounded shadow w-full bg-gray-200">
                   <div
                     class="bg-cyan transition-all font-bold text-white py-1 text-center"
-                    v-bind:style="{ width: `${this.signupProgress}%` }"
-                    v-show="this.participants && this.goal"
-                  >{{ this.participants.toLocaleString() }} 人已聯署</div>
+                    v-bind:style="{width: `${this.signupProgress || 0}%` }"
+                  >{{this.participants ? this.participants.toLocaleString()+"人已聯署" : "-"}} </div>
                 </div>
               </div>
-              <div class="form-body enform"></div>
+              <div class="form-body enform">
+                <MCForm v-if="!formSubmitted" @onSubmit="_onSubmit"/>
+                <ThankYouBlock v-if="formSubmitted"/>
+              </div>
             </div>
           </aside>
         </slide-x-right-transition>
@@ -130,96 +132,35 @@
       </div>
     </footer>
     <!-- end of footer -->
+
+    <FullLoadingPage :isActive="isLoading"/>
   </div>
 </template>
 
 <script>
+
 import NProgress from "nprogress";
 NProgress.configure({
   showSpinner: false
 });
+
 import { mainShare, whatsAppShare } from "@/share.js";
 import { supermarkets, supermarketLogos } from "@/supermarkets.js";
 import Climate from "./components/Climate.vue";
-//
-const createBirthYearList = function() {
-  const birthYear = document.getElementById("en__field_supporter_NOT_TAGGED_6");
-  if (birthYear) {
-    let c = document.createDocumentFragment();
-    let cLabel = document.createElement("option");
-    cLabel.value = "";
-    cLabel.innerHTML = "出生年份";
-    c.append(cLabel);
-    let thisYear = new Date().getFullYear();
-    for (let i = thisYear; i >= thisYear - 99; i--) {
-      let opt = document.createElement("option");
-      opt.value = "01/01/" + i.toString();
-      opt.innerHTML = i.toString();
-      c.appendChild(opt);
-    }
-    birthYear.innerHTML = "";
-    birthYear.append(c);
-  }
-};
-const enFormType = function() {
-  const enform = document.querySelector("form.en__component");
-  const email = document.getElementById("en__field_supporter_emailAddress");
-  const phone = document.getElementById("en__field_supporter_phoneNumber");
-  const formFields = document.querySelectorAll(".en__field--text");
-  //
-  if (email && phone) {
-    email.setAttribute("type", "email");
-    phone.setAttribute("type", "tel");
-  }
-  if (formFields) {
-    formFields.forEach(field => {
-      let textField = field.querySelector(".en__field__input--text");
-      let label = field.querySelector(".en__field__label").textContent;
-      textField.placeholder = label;
-    });
-  }
-  if (enform) {
-    enform.setAttribute("autocomplete", "off");
-  }
-};
-const decorForm = function() {
-  const enFields = document.querySelectorAll(".en__field");
-  const formFields = document.querySelectorAll(".en__field");
-  const formLabels = document.querySelectorAll(".en__field label");
-  const formInputs = document.querySelectorAll(
-    ".en__field__input:not(#en__field_supporter_questions_7275), #en__field_supporter_NOT_TAGGED_6"
-  );
-  const enSubmit = document.querySelector(".en__submit button");
-  if (formFields) {
-    Array.from(formFields).map(field => {
-      field.classList.add("form-row");
-    });
-  }
-  if (formLabels) {
-    Array.from(formLabels).map(label => {
-      label.classList.add("form-label");
-    });
-  }
-  if (formInputs) {
-    Array.from(formInputs).map(input => {
-      input.classList.add("form-input");
-    });
-  }
-  if (enSubmit) {
-    enSubmit.classList.add("form-button");
-  }
-};
-const appendForm = function() {
-  const nativeForm = document.querySelector("form.en__component--page");
-  const enFormWrapper = document.querySelector(".form-body");
-  if (nativeForm && enFormWrapper) {
-    enFormWrapper.appendChild(nativeForm);
-  }
-};
-//
+
+import MCForm from "./components/MCForm.vue"
+import ThankYouBlock from "./components/ThankYouBlock.vue"
+import FullLoadingPage from "./components/FullLoadingPage.vue"
+import * as mcHelper from "@/mc.form-helper.js"
+
 export default {
   name: "App",
-  components: { Climate },
+  components: {
+    Climate,
+    MCForm,
+    ThankYouBlock,
+    FullLoadingPage
+  },
   data() {
     return {
       supermarkets: supermarkets,
@@ -229,9 +170,10 @@ export default {
       currentPage: 0,
       showMobileButton: true,
       showFormModal: true,
-      formSumitted: false,
+      formSubmitted: false, // wether to show the succ page or not
       participants: 0,
-      goal: 0
+      goal: 0,
+      isLoading: false
     };
   },
   methods: {
@@ -276,6 +218,53 @@ export default {
     handleScroll() {
       let scroll = this.getScrollTop() / this.innerHeight;
       this.scrollDepth = Math.round(scroll * 100);
+    },
+
+    /**
+     * Handle the form submission
+     * @return {[type]} [description]
+     */
+    _onSubmit: function (formDataObj) {
+      try {
+        this.isLoading = true
+
+        // prepare the submit data
+        let postData = mcHelper.fetchFormInputs("#mc-form")
+        for (let k in formDataObj) {
+          if (k in postData) {
+            postData[k] = formDataObj[k]
+          }
+        }
+
+        fetch(mcHelper.getPostURL(), {
+          method: 'POST',
+          body: Object.keys(postData).reduce((formData, k) => {
+            formData.append(k, postData[k]);
+            return formData;
+          }, new FormData())
+        })
+        .then(response => response.json())
+        .then(response => {
+          this.isLoading = false
+
+          if (response.Supporter) { // ok, go to next page
+            mcHelper.sendPetitionTracking("2020-climate")
+            this.formSubmitted = true
+            this.participants += 1
+            document.querySelector(".enform").scrollIntoView();
+          } else {
+            console.error(response)
+          }
+        })
+        .catch(error => {
+          this.isLoading = false // something wrong
+          alert(error)
+          console.error(error)
+        })
+
+      } catch (e) {
+        console.error(e)
+      }
     }
   },
   computed: {
@@ -294,58 +283,25 @@ export default {
   created() {
     NProgress.start();
     window.addEventListener("scroll", this.handleScroll);
-    //
-    const page = window.pageJson.pageNumber;
-    this.currentPage = page;
-    if (page == 2) {
-      this.formSubmitted = true;
-      const shareBtn = document.querySelector(".button--share");
-      const whatsappBtn = document.querySelector(".button--whatsappshare");
-      if (shareBtn) {
-        shareBtn.addEventListener("click", mainShare);
-      }
-      if (whatsappBtn) {
-        whatsappBtn.addEventListener("click", whatsAppShare);
-      }
-    }
   },
   mounted() {
     this.checkMobile();
-    enFormType();
-    createBirthYearList();
-    appendForm();
-    decorForm();
-    //
-    const widgetEndPoint =
-      "https://cors-anywhere.small-service.gpeastasia.org/https://act.greenpeace.org/page/widget/434094";
-    fetch(widgetEndPoint)
-      .then(resp => resp.json())
-      .then(data => {
-        let campaignList = data.data.rows;
-        let totalRegistration = 0;
-        campaignList.forEach(campaign => {
-          totalRegistration =
-            totalRegistration + parseInt(campaign.columns[4].value);
-        });
-        this.participants = totalRegistration;
-        return data.jsonContent;
-      })
-      .then(jsonContent => {
-        this.goal = JSON.parse(jsonContent).goal;
-        // console.log(this.participants);
-        // console.log(this.goal);
-        // console.log(this.signupProgress);
-      })
-      .catch(error => {
-        this.participants = 0;
-      });
+
+    // render the peition status bar
+    const {numSignupTarget, numSignup} = mcHelper.getNumSignupsAndTarget()
+    this.goal = numSignupTarget;
+    this.participants = 0;
+    setTimeout(() => { // for the animation
+      this.participants = numSignup;
+    }, 1000)
+
     this.$nextTick(() => {
       NProgress.done();
     });
   },
   destroyed() {
     document.removeEventListener("scroll", this.handleScroll);
-    alert("Please refresh the page");
+    console.warn("Please refresh the page");
   }
 };
 </script>
