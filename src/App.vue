@@ -25,12 +25,6 @@
       <div class="grid gap-4">
         <div class="content bg-gray-100">
           <section class="section-hero relative">
-            <img
-              class="w-full"
-              src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/934d12df-2020_climate_petition_banner_1200x628-02.jpg"
-              alt
-            />
-            <div class="green-banenr">
               <div class="col-xs-12">
                 <h1
                   class="text-green mt-8 mb-4 flex flex-wrap align-center justify-center tracking-wider text-4xl font-bold"
@@ -145,14 +139,6 @@ NProgress.configure({
 });
 
 import { mainShare, whatsAppShare } from "@/share.js";
-import { supermarkets, supermarketLogos } from "@/supermarkets.js";
-import Climate from "./components/Climate.vue";
-
-import MCForm from "./components/MCForm.vue"
-import ThankYouBlock from "./components/ThankYouBlock.vue"
-import FullLoadingPage from "./components/FullLoadingPage.vue"
-import * as mcHelper from "@/mc.form-helper.js"
-
 export default {
   name: "App",
   components: {
@@ -164,7 +150,7 @@ export default {
   data() {
     return {
       supermarkets: supermarkets,
-      supermarketLogos: supermarketLogos,
+      supermarketImages: supermarketImages,
       isMobile: false,
       scrollDepth: 0,
       currentPage: 0,
