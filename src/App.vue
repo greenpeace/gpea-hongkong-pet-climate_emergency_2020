@@ -47,7 +47,10 @@
         <slide-x-right-transition :duration="400">
           <aside class="aside-enform enform relative">
             <div id="enform" class="form-container form-container--sticky sticky">
-              <div class="form-header mt-2 mb-4 text-2xl text-center font-bold" v-if="!formSubmitted">
+              <div
+                class="form-header mt-2 mb-4 text-2xl text-center font-bold"
+                v-if="!formSubmitted"
+              >
                 <h2 class="mb-2">爭分奪秒 拯救氣候危機</h2>
                 <p class="font-normal text-sm">
                   一同發聲，告訴政府「香港人關注氣候議題」
@@ -58,13 +61,15 @@
                 <div class="overflow-hidden rounded shadow w-full bg-gray-200">
                   <div
                     class="bg-cyan transition-all font-bold text-white py-1 text-center"
-                    v-bind:style="{width: `${this.signupProgress || 0}%` }"
-                  >{{this.participants ? this.participants.toLocaleString()+"人已聯署" : "-"}} </div>
+                    v-bind:style="{ width: `${this.signupProgress || 0}%` }"
+                  >
+                    {{ this.participants ? this.participants.toLocaleString() + "人已聯署" : "-" }}
+                  </div>
                 </div>
               </div>
               <div class="form-body enform">
-                <MCForm v-if="!formSubmitted" @onSubmit="_onSubmit"/>
-                <ThankYouBlock v-if="formSubmitted"/>
+                <MCForm v-if="!formSubmitted" @onSubmit="_onSubmit" />
+                <ThankYouBlock v-if="formSubmitted" />
               </div>
             </div>
           </aside>
@@ -90,9 +95,9 @@
               src="https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-white-%5bweb%5d-01.png"
               alt="Greenpeace 綠色和平"
             />
-            <p
-              class="text-sm"
-            >綠色和平是獨立的國際環保組織，通過科學研究、政策倡議及和平行動，揭露全球環境問題並提出相應解決方案。我們從不接受任何政府、企業或政治團體的資助，只接受個人的直接捐款，以維持公正獨立。</p>
+            <p class="text-sm">
+              綠色和平是獨立的國際環保組織，通過科學研究、政策倡議及和平行動，揭露全球環境問題並提出相應解決方案。我們從不接受任何政府、企業或政治團體的資助，只接受個人的直接捐款，以維持公正獨立。
+            </p>
           </div>
           <div class="w-full md:w-1/2 mb-8">
             <ul
@@ -103,25 +108,29 @@
                 rel="noopener noreferrer"
                 href="http://www.greenpeace.org/hongkong/"
                 alt="主頁"
-              >主頁</a>
+                >主頁</a
+              >
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.greenpeace.org/hongkong/policies/privacy-and-cookies/"
                 alt="私隱政策與個人資料收集聲明"
-              >私隱政策與個人資料收集聲明</a>
+                >私隱政策與個人資料收集聲明</a
+              >
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.greenpeace.org/hongkong/about/contact/"
                 alt="聯絡我們"
-              >聯絡我們</a>
+                >聯絡我們</a
+              >
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.greenpeace.org/hongkong/about/overview/"
                 alt="關於綠色和平"
-              >關於綠色和平</a>
+                >關於綠色和平</a
+              >
             </ul>
           </div>
           <div class="w-full mb-8">
@@ -133,25 +142,24 @@
     </footer>
     <!-- end of footer -->
 
-    <FullLoadingPage :isActive="isLoading"/>
+    <FullLoadingPage :isActive="isLoading" />
   </div>
 </template>
 
 <script>
-
 import NProgress from "nprogress";
 NProgress.configure({
   showSpinner: false
 });
 
 import { mainShare, whatsAppShare } from "@/share.js";
-import { supermarkets, supermarketLogos } from "@/supermarkets.js";
+// import { supermarkets, supermarketLogos } from "@/supermarkets.js";
 import Climate from "./components/Climate.vue";
 
-import MCForm from "./components/MCForm.vue"
-import ThankYouBlock from "./components/ThankYouBlock.vue"
-import FullLoadingPage from "./components/FullLoadingPage.vue"
-import * as mcHelper from "@/mc.form-helper.js"
+import MCForm from "./components/MCForm.vue";
+import ThankYouBlock from "./components/ThankYouBlock.vue";
+import FullLoadingPage from "./components/FullLoadingPage.vue";
+import * as mcHelper from "@/mc.form-helper.js";
 
 export default {
   name: "App",
@@ -163,8 +171,8 @@ export default {
   },
   data() {
     return {
-      supermarkets: supermarkets,
-      supermarketLogos: supermarketLogos,
+      // supermarkets: supermarkets,
+      // supermarketLogos: supermarketLogos,
       isMobile: false,
       scrollDepth: 0,
       currentPage: 0,
@@ -209,11 +217,7 @@ export default {
     getScrollTop() {
       return window.pageYOffset !== undefined
         ? window.pageYOffset
-        : (
-            document.documentElement ||
-            document.body.parentNode ||
-            document.body
-          ).scrollTop;
+        : (document.documentElement || document.body.parentNode || document.body).scrollTop;
     },
     handleScroll() {
       let scroll = this.getScrollTop() / this.innerHeight;
@@ -224,46 +228,46 @@ export default {
      * Handle the form submission
      * @return {[type]} [description]
      */
-    _onSubmit: function (formDataObj) {
+    _onSubmit: function(formDataObj) {
       try {
-        this.isLoading = true
+        this.isLoading = true;
 
         // prepare the submit data
-        let postData = mcHelper.fetchFormInputs("#mc-form")
+        let postData = mcHelper.fetchFormInputs("#mc-form");
         for (let k in formDataObj) {
           if (k in postData) {
-            postData[k] = formDataObj[k]
+            postData[k] = formDataObj[k];
           }
         }
 
         fetch(mcHelper.getPostURL(), {
-          method: 'POST',
+          method: "POST",
           body: Object.keys(postData).reduce((formData, k) => {
             formData.append(k, postData[k]);
             return formData;
           }, new FormData())
         })
-        .then(response => response.json())
-        .then(response => {
-          this.isLoading = false
+          .then(response => response.json())
+          .then(response => {
+            this.isLoading = false;
 
-          if (response.Supporter) { // ok, go to next page
-            mcHelper.sendPetitionTracking("2020-climate")
-            this.formSubmitted = true
-            this.participants += 1
-            document.querySelector(".enform").scrollIntoView();
-          } else {
-            console.error(response)
-          }
-        })
-        .catch(error => {
-          this.isLoading = false // something wrong
-          alert(error)
-          console.error(error)
-        })
-
+            if (response.Supporter) {
+              // ok, go to next page
+              mcHelper.sendPetitionTracking("2020-climate");
+              this.formSubmitted = true;
+              this.participants += 1;
+              document.querySelector(".enform").scrollIntoView();
+            } else {
+              console.error(response);
+            }
+          })
+          .catch(error => {
+            this.isLoading = false; // something wrong
+            alert(error);
+            console.error(error);
+          });
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
     }
   },
@@ -275,9 +279,7 @@ export default {
       return this.getDocumentHeight() - this.getWindowHeight();
     },
     signupProgress() {
-      return this.participants
-        ? Math.round((this.participants / this.goal) * 100)
-        : 0;
+      return this.participants ? Math.round((this.participants / this.goal) * 100) : 0;
     }
   },
   created() {
@@ -288,12 +290,13 @@ export default {
     this.checkMobile();
 
     // render the peition status bar
-    const {numSignupTarget, numSignup} = mcHelper.getNumSignupsAndTarget()
+    const { numSignupTarget, numSignup } = mcHelper.getNumSignupsAndTarget();
     this.goal = numSignupTarget;
     this.participants = 0;
-    setTimeout(() => { // for the animation
+    setTimeout(() => {
+      // for the animation
       this.participants = numSignup;
-    }, 1000)
+    }, 1000);
 
     this.$nextTick(() => {
       NProgress.done();
