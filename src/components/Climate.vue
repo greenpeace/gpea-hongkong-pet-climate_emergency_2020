@@ -10,47 +10,35 @@
         </p>
       </div>
       <div class="col-xs-12 col-lg-6">
-        <p class="text">
-          過去30年，北極夏季消失的海冰面積，超過3,000個香港；全球多地包括澳洲、亞馬遜等地近年發生嚴重山火，各地氣候科學家指出全球氣候危機加劇山火的嚴重程度及頻率，可能成為新常態。
-        </p>
-        <p class="text">
-          氣候危機不僅是北極熊和樹熊的事，更是全人類的事 -
-          全球熱浪頻發，海平面上升、農業生產量下降、水資源枯竭、疾病傳播，生態和環境失衡、物種滅絕等等。
-        </p>
+        <h2 class="mt-8 text-green text text-xl font-bold">「我唔要咁嘅未來呀！」</h2>
+        <p
+          class="text"
+        >年僅11歲的香港氣候行動家Lance於綠色和平的宣傳片中發出呼喚，提醒更多人必需關注氣候危機，再不及時行動，極端氣候的惡果將會由下一代承受。只要你願意開始行動，就有多一分力量應對氣候危機的嚴峻威脅！</p>
       </div>
-      <div class="p-1 col-xs-6 col-lg-3">
+      <div class="p-1 col-xs-12 col-md-6">
         <img
-          src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/b39b8611-20200618_climate_petition_photos-copy-01.jpg"
-          alt
-          class="w-full"
-        />
-      </div>
-      <div class="p-1 col-xs-6 col-lg-3">
-        <img
-          src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/c888a57b-20200618_climate_petition_photos-copy-02.jpg"
+          src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/08/502ab051-2020_08_climate_petition_lance-photos_800x577-01.jpg"
           alt
           class="w-full"
         />
       </div>
     </div>
     <div class="row mb-8">
-      <div class="px-1 col-xs-12 col-md-6 col-lg-5">
+      <div class="px-1 col-xs-12 col-md-6">
         <img
-          src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/77e3c321-20200618_climate_petition_photos-copy-03.jpg"
+          src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/08/f0abfde7-2020_08_climate_petition_lance-photos_800x577-03.jpg"
           alt
           class="w-full"
         />
       </div>
-      <div class="col-xs-12 col-md-6 col-lg-7">
-        <h2 class="mt-8 text-green text text-xl font-bold">
-          香港作為沿海城市，不可能逃離氣候危機的威脅。
-        </h2>
-        <p class="text">
-          綠色和平參考香港天文台兩項研究後估算，假如全球溫室氣體排放趨勢不變，到本世紀中全港將有28平方公里面積（相等於147個維多利亞公園），可能平均每10年，就會受到類似山竹帶來的風暴潮侵襲，影響近十萬人。
-        </p>
-        <p class="text">
-          氣候危機更為香港人帶來健康風險、死亡率升高等威脅，更直接影響下一代的未來。每一份力量都可以為拯救脆弱的氣候出一分力，一起發聲，壯大守護氣候的聲音，要求政府加強基建的防洪防災能力，同時加快推動可再生能源和節約能源，減少溫室氣體排放。
-        </p>
+      <div class="col-xs-12 col-md-6">
+        <h2 class="mt-8 text-green text text-xl font-bold">香港作為沿海城市，不可能逃離氣候危機的威脅。</h2>
+        <p
+          class="text"
+        >綠色和平參考香港天文台兩項研究後估算，假如全球溫室氣體排放趨勢不變，到本世紀中全港將有28平方公里面積（相等於147個維多利亞公園），可能平均每10年，就會受到類似山竹帶來的風暴潮侵襲，影響近十萬人。</p>
+        <p
+          class="text"
+        >氣候危機更為香港人帶來健康風險、死亡率升高等威脅，更直接影響下一代的未來。每一份力量都可以為拯救脆弱的氣候出一分力，一起發聲，壯大守護氣候的聲音，要求政府加強基建的防洪防災能力，同時加快推動可再生能源和節約能源，減少溫室氣體排放。</p>
       </div>
 
       <div class="mt-8 p-1 col-xs-6 col-lg-6">
@@ -90,9 +78,9 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <p class="text">
-          綠色和平的評估顯示，到本世紀中，類似山竹引起的風暴潮，海水入侵範圍達28平方公里，涉及近十萬人。其中香港西北面將成為重災區，元朗和北區共佔受威脅總面積接近71%（約20平方公里），約六萬人面對風險。其他較為受到威脅的地區如下：
-        </p>
+        <p
+          class="text"
+        >綠色和平的評估顯示，到本世紀中，類似山竹引起的風暴潮，海水入侵範圍達28平方公里，涉及近十萬人。其中香港西北面將成為重災區，元朗和北區共佔受威脅總面積接近71%（約20平方公里），約六萬人面對風險。其他較為受到威脅的地區如下：</p>
       </div>
       <div class="col-xs-12">
         <div class="mt-4 mb-4">
@@ -111,25 +99,26 @@
     </div>
     <hr class="my-4" />
     <div class="row">
-      <div class="mt-4 p-1 col-xs-6 col-lg-4">
-        <img
-          src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/96c77a35-20200618_climate_petition_photos-copy-06.jpg"
-          alt
-          class="w-full"
-        />
-      </div>
-      <div class="mt-4 p-1 col-xs-6 col-lg-4">
-        <img
-          src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/a9507f99-20200618_climate_petition_photos-copy-07.jpg"
-          alt
-          class="w-full"
-        />
-      </div>
-      <div class="mt-4 col-xs-12 col-lg-4">
+      <div class="mt-4 col-xs-12 col-lg-6">
         <h2 class="text-green mb-4 text-2xl font-bold">我們的行動</h2>
-        <p class="text">
-          綠色和平由5月起遊說多個區議會關注氣候危機，並促請政府全面研究氣候變化的影響，識別高危地區，制定長遠應對策略，提升應對危機的能力。此外，當局亦必須更積極地發展可再生能源和推動節約能源，減少溫室氣體排放。
-        </p>
+        <p
+          class="text"
+        >與此同時綠色和平跟年僅11歲的本地氣候行動者劉衍一(Lance)會有一連串合作，一起將氣候危機訊息傳開，希望感染更多個人、企業和團體，一起為氣候危機行動，壯大守護氣候聲勢，從而推動改變。</p>
+        <p class="text"></p>
+      </div>
+      <div class="mt-4 p-1 col-xs-6 col-lg-6">
+        <img
+          src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/08/7edb18a3-2020_08_climate_petition_lance-photos_800x577-02.jpg"
+          alt
+          class="w-full"
+        />
+      </div>
+      <div class="mt-4 p-1 col-xs-6 col-lg-6">
+        <img
+          src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/08/cb96e79a-2020_08_climate_petition_lance-photos_800x577-04.jpg"
+          alt
+          class="w-full"
+        />
       </div>
     </div>
   </section>

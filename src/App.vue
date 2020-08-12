@@ -27,7 +27,7 @@
           <section class="section-hero relative">
             <img
               class="w-full"
-              src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/934d12df-2020_climate_petition_banner_1200x628-02.jpg"
+              src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/08/c807630d-2020_08_climate_petition_lance_banner_1200x628-02.jpg"
               alt
             />
             <div class="green-banenr">
@@ -62,9 +62,7 @@
                   <div
                     class="bg-cyan transition-all font-bold text-white py-1 text-center"
                     v-bind:style="{ width: `${this.signupProgress || 0}%` }"
-                  >
-                    {{ this.participants ? this.participants.toLocaleString() + "人已聯署" : "-" }}
-                  </div>
+                  >{{ this.participants ? this.participants.toLocaleString() + "人已聯署" : "-" }}</div>
                 </div>
               </div>
               <div class="form-body enform">
@@ -95,9 +93,9 @@
               src="https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-white-%5bweb%5d-01.png"
               alt="Greenpeace 綠色和平"
             />
-            <p class="text-sm">
-              綠色和平是獨立的國際環保組織，通過科學研究、政策倡議及和平行動，揭露全球環境問題並提出相應解決方案。我們從不接受任何政府、企業或政治團體的資助，只接受個人的直接捐款，以維持公正獨立。
-            </p>
+            <p
+              class="text-sm"
+            >綠色和平是獨立的國際環保組織，通過科學研究、政策倡議及和平行動，揭露全球環境問題並提出相應解決方案。我們從不接受任何政府、企業或政治團體的資助，只接受個人的直接捐款，以維持公正獨立。</p>
           </div>
           <div class="w-full md:w-1/2 mb-8">
             <ul
@@ -108,29 +106,25 @@
                 rel="noopener noreferrer"
                 href="http://www.greenpeace.org/hongkong/"
                 alt="主頁"
-                >主頁</a
-              >
+              >主頁</a>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.greenpeace.org/hongkong/policies/privacy-and-cookies/"
                 alt="私隱政策與個人資料收集聲明"
-                >私隱政策與個人資料收集聲明</a
-              >
+              >私隱政策與個人資料收集聲明</a>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.greenpeace.org/hongkong/about/contact/"
                 alt="聯絡我們"
-                >聯絡我們</a
-              >
+              >聯絡我們</a>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.greenpeace.org/hongkong/about/overview/"
                 alt="關於綠色和平"
-                >關於綠色和平</a
-              >
+              >關於綠色和平</a>
             </ul>
           </div>
           <div class="w-full mb-8">
@@ -149,7 +143,7 @@
 <script>
 import NProgress from "nprogress";
 NProgress.configure({
-  showSpinner: false
+  showSpinner: false,
 });
 
 import { mainShare, whatsAppShare } from "@/share.js";
@@ -167,7 +161,7 @@ export default {
     Climate,
     MCForm,
     ThankYouBlock,
-    FullLoadingPage
+    FullLoadingPage,
   },
   data() {
     return {
@@ -181,7 +175,7 @@ export default {
       formSubmitted: false, // wether to show the succ page or not
       participants: 0,
       goal: 0,
-      isLoading: false
+      isLoading: false,
     };
   },
   methods: {
@@ -217,7 +211,11 @@ export default {
     getScrollTop() {
       return window.pageYOffset !== undefined
         ? window.pageYOffset
-        : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+        : (
+            document.documentElement ||
+            document.body.parentNode ||
+            document.body
+          ).scrollTop;
     },
     handleScroll() {
       let scroll = this.getScrollTop() / this.innerHeight;
@@ -228,7 +226,7 @@ export default {
      * Handle the form submission
      * @return {[type]} [description]
      */
-    _onSubmit: function(formDataObj) {
+    _onSubmit: function (formDataObj) {
       try {
         this.isLoading = true;
 
@@ -245,10 +243,10 @@ export default {
           body: Object.keys(postData).reduce((formData, k) => {
             formData.append(k, postData[k]);
             return formData;
-          }, new FormData())
+          }, new FormData()),
         })
-          .then(response => response.json())
-          .then(response => {
+          .then((response) => response.json())
+          .then((response) => {
             this.isLoading = false;
 
             if (response.Supporter) {
@@ -261,7 +259,7 @@ export default {
               console.error(response);
             }
           })
-          .catch(error => {
+          .catch((error) => {
             this.isLoading = false; // something wrong
             alert(error);
             console.error(error);
@@ -269,7 +267,7 @@ export default {
       } catch (e) {
         console.error(e);
       }
-    }
+    },
   },
   computed: {
     mobileBtnText() {
@@ -279,8 +277,10 @@ export default {
       return this.getDocumentHeight() - this.getWindowHeight();
     },
     signupProgress() {
-      return this.participants ? Math.round((this.participants / this.goal) * 100) : 0;
-    }
+      return this.participants
+        ? Math.round((this.participants / this.goal) * 100)
+        : 0;
+    },
   },
   created() {
     NProgress.start();
@@ -305,7 +305,7 @@ export default {
   destroyed() {
     document.removeEventListener("scroll", this.handleScroll);
     console.warn("Please refresh the page");
-  }
+  },
 };
 </script>
 
