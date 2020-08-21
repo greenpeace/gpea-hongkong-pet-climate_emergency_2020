@@ -1,20 +1,20 @@
-const path = require('path')
-const PrerenderSPAPlugin = require('prerender-spa-plugin')
+const path = require("path");
+const PrerenderSPAPlugin = require("prerender-spa-plugin");
 // @see https://github.com/chrisvfritz/prerender-spa-plugin
 
 module.exports = {
   // options...
   publicPath:
-		process.env.NODE_ENV === "production"
-			? "https://api.greenpeace.org.hk/2020/petition/zh-hk.2020.climate.climate_emergency_2020.general.signup.na.mc/"
-			: "/",
+    process.env.NODE_ENV === "production"
+      ? "https://api.greenpeace.org.hk/2020/petition/zh-hk.2020.climate.climate_emergency_2020.general.signup.na.mc/"
+      : "/",
 
-	outputDir: 'build',
+  outputDir: "build",
 
-	assetsDir: 'static',
+  assetsDir: "static",
 
-	filenameHashing: true,
-
+  filenameHashing: true,
+  /*
 	configureWebpack:  {
 		plugins: process.env.NODE_ENV === 'production' ? [
 			new PrerenderSPAPlugin({
@@ -24,8 +24,9 @@ module.exports = {
 				routes: [ '/'],
 			})
 		] : []
-	},
-	devServer: {
-		disableHostCheck: true
-	}
+  },
+  */
+  devServer: {
+    disableHostCheck: true
+  }
 };
