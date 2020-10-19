@@ -5,11 +5,11 @@
     </p>
     <p class="text">感謝您！我們需要更多市民加入，一同發聲，告訴政府「香港人關注氣候議題」，凝聚更大的力量要求正視氣候危機。您願意分享給身邊的家人和朋友，擴大拯救氣候危機的力量嗎？</p>
     <p class="actions">
-      <a class="btn action-button button--share" href="#" target="_blank" @click="mainShare">分享出去</a>
+      <a class="btn action-button share-button__main button--share" href="#" target="_blank" @click="mainShare">分享出去</a>
     </p>
     <p class="actions">
       <a
-        class="btn action-button button--whatsappshare"
+        class="btn action-button share-button share-button__whatsapp button--whatsappshare"
         href="#"
         target="_blank"
         @click="whatsAppShare"
