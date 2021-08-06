@@ -34,15 +34,15 @@
       </div>
     </div>
     <div class="row mb-8">
-      <div class="px-1 col-xs-12 col-md-6 col-lg-5">
+      <div class="mb-4 col-xs-12 col-md-6">
         <img
           src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/77e3c321-20200618_climate_petition_photos-copy-03.jpg"
           alt
           class="w-full"
         />
       </div>
-      <div class="col-xs-12 col-md-6 col-lg-7">
-        <h2 class="mt-8 text-green text text-xl font-bold">
+      <div class="col-xs-12 col-md-6">
+        <h2 class="text-green text text-xl font-bold">
           香港作為沿海城市，不可能逃離氣候危機的威脅。
         </h2>
         <p class="text">
@@ -53,14 +53,14 @@
         </p>
       </div>
 
-      <div class="mt-8 p-1 col-xs-6 col-lg-6">
+      <div class="mt-6 p-6 col-xs-6 col-lg-6">
         <img
           src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/83a125a8-20200618_climate_petition_photos-copy-04.jpg"
           alt
           class="w-full"
         />
       </div>
-      <div class="mt-8 p-1 col-xs-6 col-lg-6">
+      <div class="mt-6 p-6 col-xs-6 col-lg-6">
         <img
           src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/998bbe01-20200618_climate_petition_photos-copy-05.jpg"
           alt
@@ -98,12 +98,12 @@
         <div class="mt-4 mb-4">
           <img
             src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/4cb7d122-table_web-01_r1.jpg"
-            alt
+            alt="綠色和平的評估顯示，到本世紀中，類似山竹引起的風暴潮，海水入侵範圍達28平方公里，涉及近十萬人。其中香港西北面將成為重災區，元朗和北區共佔受威脅總面積接近71%（約20平方公里），約六萬人面對風險。其他較為受到威脅的地區如下："
             class="hidden lg:block w-full"
           />
           <img
             src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/8953cd63-table_mobile.ai-01_r1.jpg"
-            alt
+            alt="綠色和平的評估顯示，到本世紀中，類似山竹引起的風暴潮，海水入侵範圍達28平方公里，涉及近十萬人。其中香港西北面將成為重災區，元朗和北區共佔受威脅總面積接近71%（約20平方公里），約六萬人面對風險。其他較為受到威脅的地區如下："
             class="sm:block lg:hidden w-full"
           />
         </div>
@@ -111,24 +111,17 @@
     </div>
     <hr class="my-4" />
     <div class="row">
-      <div class="mt-4 p-1 col-xs-6 col-lg-4">
+      <div class="mt-4 p-1 col-xs-6 col-lg-6">
         <img
-          src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/96c77a35-20200618_climate_petition_photos-copy-06.jpg"
-          alt
+          src="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/08/eb56f5b6-dsc01511.jpg"
+          alt="綠色和平透過不同平台呼籲各界關注氣候危機，並促請政府全面研究氣候變化的影響，識別高危地區，制定長遠應對策略，提升應對危機的能力。此外，當局亦必須更積極地發展可再生能源和推動節約能源，減少溫室氣體排放。"
           class="w-full"
         />
       </div>
-      <div class="mt-4 p-1 col-xs-6 col-lg-4">
-        <img
-          src="https://storage.googleapis.com/planet4-hongkong-stateless/2020/06/a9507f99-20200618_climate_petition_photos-copy-07.jpg"
-          alt
-          class="w-full"
-        />
-      </div>
-      <div class="mt-4 col-xs-12 col-lg-4">
+      <div class="mt-4 col-xs-12 col-lg-6">
         <h2 class="text-green mb-4 text-2xl font-bold">我們的行動</h2>
         <p class="text">
-          綠色和平由5月起遊說多個區議會關注氣候危機，並促請政府全面研究氣候變化的影響，識別高危地區，制定長遠應對策略，提升應對危機的能力。此外，當局亦必須更積極地發展可再生能源和推動節約能源，減少溫室氣體排放。
+          綠色和平透過不同平台呼籲各界關注氣候危機，並促請政府全面研究氣候變化的影響，識別高危地區，制定長遠應對策略，提升應對危機的能力。此外，當局亦必須更積極地發展可再生能源和推動節約能源，減少溫室氣體排放。
         </p>
       </div>
     </div>
